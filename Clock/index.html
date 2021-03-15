@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #clock {
+            width: 600px;
+            height: 600px;
+            background: url(img/clock.jpg) no-repeat;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #hour, #minute, #second {
+            position: absolute;
+            left: 50%;
+            top:0;
+            width: 30px;
+            height: 600px;
+            margin-left: -15px;
+        }
+
+        #hour {
+            background: url(img/hour.png) no-repeat;
+        }
+        #minute {
+            background: url(img/minute.png) no-repeat;
+        }
+        #second {
+            background: url(img/second.png) no-repeat;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="clock">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+    
+    <script>
+        const hour = document.getElementById('hour');
+        const minute = document.getElementById('minute');
+        const second = document.getElementById('second');
+
+        let startClock = setInterval(() => {
+            let date = new Date();
+            let millS = date.getMilliseconds();
+            let sec = date.getSeconds() + millS/1000;
+            let min = date.getMinutes() + sec/60;
+            let h = date.getHours() + min/60;
+
+            second.style.transform = `rotate(${sec*6}deg)`;
+            minute.style.transform = `rotate(${min*6}deg)`;
+            hour.style.transform = `rotate(${h*30}deg)`;
+        }, 1000);
+
+        window.onload = startClock;
+    </script>
+</body>
+</html>

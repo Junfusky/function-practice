@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress-bar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1200px;
+            height: 50px;
+            /* background-color: rgb(189, 93, 93); */
+            margin: 200px auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .progress-bar {
+            width: 1000px;
+            height: 35px;
+            background-color: rgb(180, 180, 180);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        #progress{
+            width: 0;
+            height: 100%;
+            background-color: rgb(88, 122, 214);
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        #tab {
+            width: 15px;
+            height: 45px;
+            background-color: rgb(88, 122, 214);
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        #percent{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="progress-bar">
+            <div id="progress"></div>
+            <span id="tab"></span>
+        </div>
+        <span id="percent">0%</span>
+    </div>
+
+    <script>
+        const progressBar = document.querySelector('.progress-bar');
+        const progress = document.getElementById('progress');
+        const tab = document.getElementById('tab');
+        const percentage = document.getElementById('percent');
+
+        tab.addEventListener('mousedown', function(ev1) {
+            let e = ev1 || window.event;
+            let startX = e.pageX - tab.offsetLeft;
+
+            document.onmousemove = function(ev2) {
+                let e2 = ev2 || window.event;
+                let move = e2.pageX - startX;
+
+                if(move < 0) {
+                    move = 0;
+                }else if(move > progressBar.offsetWidth - tab.offsetWidth){
+                    move = progressBar.offsetWidth - tab.offsetWidth;
+                };
+
+                tab.style.left = move + 'px';
+                progress.style.width = move + 'px';
+                percentage.textContent = `${parseInt(move / (progressBar.offsetWidth - tab.offsetWidth)* 100)}%`
+            };
+         
+        });
+
+        document.addEventListener('mouseup', function(ev3) {
+            document.onmousemove = null;
+        });
+
+
+    </script>
+</body>
+</html>

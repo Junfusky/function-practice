@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D-Player_self</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: url(img/quanyecha_background.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        .animation {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            bottom: 100px;
+            transform-style: preserve-3d;
+            animation: rotate 15s linear  infinite ;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateX(-10deg) rotateY(0deg);
+            }
+
+            to {
+                transform: rotateX(-10deg) rotateY(360deg);;
+            }
+        }
+
+        .animation li{
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: black;
+        }
+
+        .animation:hover {
+            animation-play-state: paused;
+        }
+
+        .animation:hover li img {
+            opacity: 0.6;
+        }
+
+        .animation li img:hover {
+            opacity: 1;
+        }
+
+        .animation li:nth-child(1) {
+            transform: rotateY(60deg) translateZ(300px);
+        }
+
+        .animation li:nth-child(2) {
+            transform: rotateY(120deg) translateZ(300px);
+        }
+
+        .animation li:nth-child(3) {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+
+        .animation li:nth-child(4) {
+            transform: rotateY(-120deg) translateZ(300px);
+        }
+
+        .animation li:nth-child(5) {
+            transform: rotateY(-60deg) translateZ(300px);
+        }
+
+        .animation li:nth-child(6) {
+            transform: translateZ(300px);
+        }
+
+        .animation li img {
+            width: 300px;
+            height: 300px;
+            border: 10px solid rgb(255, 191, 201);
+        }
+
+        .logo {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            opacity: 0.8;
+            transition: transform 1.5s;
+        }
+
+        .logo:hover {
+            transform: scale(1.2);
+        }
+
+        audio {
+            outline: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <img src="img/quanyecha_logo.jpg" alt="logo" class="logo">
+    <ul class="animation">
+        <li><img src="img/quanyecha_1.png" alt="img_1"></li>
+        <li><img src="img/quanyecha_2.png" alt="img_2"></li>
+        <li><img src="img/quanyecha_3.jpg" alt="img_3"></li>
+        <li><img src="img/quanyecha_4.jpg" alt="img_4"></li>
+        <li><img src="img/quanyecha_5.jpg" alt="img_5"></li>
+        <li><img src="img/quanyecha_6.jpg" alt="img_6"></li>
+    </ul>
+    <audio src="audio/quanyecha.mp3" autoplay controls loop></audio>
+</body>
+</html>

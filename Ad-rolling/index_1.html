@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad-accordion</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box;    */
+            /* border-box will cause troubles on the li size below */
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        .pic-container {
+            width: 960px;
+            height: 300px;
+            margin: 300px auto;
+            border: solid 1px black;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .pic-container ul li {
+            width: 160px;  /* 960 / 6 */
+            float: left;
+            list-style: none;
+            transition: width 1s ease-in-out;
+        }
+
+        .pic-container ul:hover li{
+            width: 100px;  /* (960-460) / 5 */
+        }
+
+        .pic-container ul li:hover {
+            width: 460px;
+        }
+
+        .pic-container ul li img{
+            width: 460px;
+            height: 300px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="pic-container"> 
+        <ul>
+            <li><img src="img/food_1.jpg" alt="img_1"></li>
+            <li><img src="img/food_2.jpg" alt="img_2"></li>
+            <li><img src="img/food_3.jpg" alt="img_3"></li>
+            <li><img src="img/food_4.jpg" alt="img_4"></li>
+            <li><img src="img/food_5.jpg" alt="img_5"></li>
+            <li><img src="img/food_6.jpg" alt="img_6"></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random-select</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        .container {
+            width: 800px;
+            height: 500px;
+            margin: 200px auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+        button {
+            width: 200px;
+            height: 50px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+            margin: 20px 10px;
+            outline: none;
+        }
+
+        button:hover {
+            cursor: pointer;
+            filter: brightness(1.5);
+        }
+
+        button:active {
+            transform: translateY(3px);
+        }
+
+        #result {
+            width: 300px;
+            height: 300px;
+            /* background-color: rosybrown; */
+            margin: 20px auto;
+            font-size: 12rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="result"></div>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+    </div>
+    
+    <script>
+        const startBtn = document.getElementById('start');
+        const stopBtn = document.getElementById('stop');
+        const result = document.getElementById('result');
+
+        let rollingList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+        let rollingInterval = null;
+
+        result.textContent = rollingList[0];
+
+        function rolling() {
+            clearInterval(rollingInterval);
+            rollingInterval = setInterval(() => {
+                let r_index = parseInt(Math.random()*rollingList.length);
+                result.textContent = rollingList[r_index];        
+            }, 50);
+        }
+
+        startBtn.addEventListener('click', rolling);
+        stopBtn.addEventListener('click', function() {
+            clearInterval(rollingInterval);
+        });
+    </script>
+</body>
+</html>

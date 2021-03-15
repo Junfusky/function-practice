@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cursor position</title>
+    <style>
+        #box {
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+            margin: 100px auto;
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById('box');
+        box.addEventListener('mousemove', function(ev) {
+            var e = ev || window.event  // in case of compatibility issue
+            
+            var x = e.clientX - box.offsetLeft;
+            var y = e.clientY - box.offsetTop;
+
+            box.innerText = '(' + x +', ' + y + ')';
+        })
+    </script>
+</body>
+</html>

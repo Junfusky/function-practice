@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad-rolling</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        .pic-container {
+            width: 1000px;
+            height: 300px;
+            margin: 300px auto;
+            border: solid 1px black;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .pic-container ul {
+            width: 4000px;
+            animation: rolling 20s linear 0s infinite normal;
+        }
+
+        .pic-container ul:hover {
+            animation-play-state: paused;
+        }
+
+        .pic-container ul:hover li {
+            opacity: 0.6;
+        }
+
+
+        @keyframes rolling {
+            from {
+                margin-left: 0;
+            }
+
+            to {
+                margin-left: -3000px;
+            }
+        }
+        .pic-container ul li {
+            float: left;
+            list-style: none;
+        }
+
+        .pic-container ul:hover li:hover {
+            opacity: 1;
+        }
+
+        .pic-container ul li img {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pic-container"> 
+        <ul>
+            <li><img src="img/food_1.jpg" alt="img_1"></li>
+            <li><img src="img/food_2.jpg" alt="img_2"></li>
+            <li><img src="img/food_3.jpg" alt="img_3"></li>
+            <li><img src="img/food_4.jpg" alt="img_4"></li>
+            <li><img src="img/food_5.jpg" alt="img_5"></li>
+            <li><img src="img/food_6.jpg" alt="img_6"></li>
+            <li><img src="img/food_1.jpg" alt="img_1"></li>
+            <li><img src="img/food_2.jpg" alt="img_2"></li>
+        </ul>
+    </div>
+</body>
+</html>

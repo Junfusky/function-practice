@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu-Submenu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        .container {
+            width: 800px;
+            margin: 100px auto;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .menu {
+            height: 60px;
+            /* background-color: royalblue; */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .menu>li {
+            width: 200px;
+            text-align: center;
+            float: left;
+            font-size: 2rem;
+            font-weight: bolder;
+            background-color: rgba(220, 220, 220, 0.5);
+            position: relative;
+        }
+
+        .menu>li:hover {
+            cursor: pointer;
+        }
+
+        .submenu{
+            position: absolute;
+        }
+
+        .submenu>li {
+            width: 200px;
+            background-color: rgb(182, 236, 184);
+            font-size: 1.5rem;
+            transform: rotateY(180deg);
+            transition: all 1s;
+            opacity: 0;
+        }
+
+        .menu>li:hover .submenu>li {
+            transform: none;
+            opacity: 1;
+        }
+        .menu>li:hover .submenu>li:nth-child(1) {
+            transition-delay: 0s;
+        }
+        .menu>li:hover .submenu>li:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        .menu>li:hover .submenu>li:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        .menu>li:hover .submenu>li:nth-child(4) {
+            transition-delay: 0.6s;
+        }
+        .menu>li:hover .submenu>li:nth-child(5) {
+            transition-delay: 0.8s;
+        }
+
+        .menu>li .submenu>li:nth-child(5) {
+            transition-delay: 0s;
+        }
+        .menu>li .submenu>li:nth-child(4) {
+            transition-delay: 0.2s;
+        }
+        .menu>li .submenu>li:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        .menu>li .submenu>li:nth-child(2) {
+            transition-delay: 0.6s;
+        }
+        .menu>li .submenu>li:nth-child(1) {
+            transition-delay: 0.8s;
+        }
+
+        .content {
+            padding: 30px;
+            word-wrap: break-word;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="menu">
+            <li>Menu
+                <ul class="submenu">
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                </ul>
+            </li>
+            <li>Menu
+                <ul class="submenu">
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                </ul>
+            </li>
+            <li>Menu
+                <ul class="submenu">
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                    <li>Submenu</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam, accusamus vel facilis minus nostrum, eligendi possimus natus sapiente tenetur officia, quos nesciunt accusantium voluptatibus eos ducimus dicta! Ea, incidunt!Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam, accusamus vel facilis minus nostrum, eligendi possimus natus sapiente tenetur officia, quos nesciunt accusantium voluptatibus eos ducimus dicta! Ea, incidunt!Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam, accusamus vel facilis minus nostrum, eligendi possimus natus sapiente tenetur officia, quos nesciunt accusantium voluptatibus eos ducimus dicta! Ea, incidunt!Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam, accusamus vel facilis minus nostrum, eligendi possimus natus sapiente tenetur officia, quos nesciunt accusantium voluptatibus eos ducimus dicta! Ea, incidunt!Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam, accusamus vel facilis minus nostrum, eligendi possimus natus sapiente tenetur officia, quos nesciunt accusantium voluptatibus eos ducimus dicta! Ea, incidunt!Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam, accusamus vel facilis minus nostrum, eligendi possimus natus sapiente tenetur officia, quos nesciunt accusantium voluptatibus eos ducimus dicta! Ea, incidunt!</div>
+    </div>
+</body>
+</html>
